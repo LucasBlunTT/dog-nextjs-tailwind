@@ -1,5 +1,6 @@
 'use client';
 
+import Input from '@/components/Forms/Input';
 import Link from 'next/link';
 import React, { useState } from 'react';
 
@@ -34,16 +35,8 @@ export default function Login() {
     <section className="flex flex-col">
       <h1>Login</h1>
       <form action="" onSubmit={handlesubmit}>
-        <input
-          type="text"
-          value={username}
-          onChange={(event) => setUsername(event.target.value)}
-        />
-        <input
-          type="password"
-          value={password}
-          onChange={(event) => setPassword(event.target.value)}
-        />
+        <Input label="Usuário" type="text" name="username" />
+        <Input label="Senha" type="password" name="password" />
         <button className="block">Entrar</button>
       </form>
       <Link href={'/login/criar'}>Cadastro</Link>
