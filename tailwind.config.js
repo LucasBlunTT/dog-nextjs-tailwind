@@ -6,7 +6,11 @@ module.exports = {
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
-    extend: {},
+    extend: {
+      backgroundImage: {
+        'user': "url('../assets/usuario.svg')",
+      },
+    },
     transitionDuration: {
       default: '250ms',
     },
