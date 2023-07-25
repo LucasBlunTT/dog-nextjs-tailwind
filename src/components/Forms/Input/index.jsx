@@ -6,14 +6,13 @@ export default function Input({
   name,
   value,
   onChange,
+  error,
+  onBlur,
   ...props
 }) {
   return (
     <div className="mb-4">
-      <label
-        className="block text-[1rem] leading-4 pb-[0.5rem]"    
-        htmlFor={name}
-      >
+      <label className="block text-[1rem] leading-4 pb-[0.5rem]" htmlFor={name}>
         {label}
       </label>
       <input
@@ -22,9 +21,10 @@ export default function Input({
         type={type}
         value={value}
         onChange={onChange}
+        onBlur={onBlur}
         {...props}
       />
-      <p className="text-[red] text-[0.875rem] mt-1">Error</p>
+      {error && <p className="text-[red] text-[0.875rem] mt-1">{error}</p>}
     </div>
   );
 }

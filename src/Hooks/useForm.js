@@ -1,9 +1,32 @@
 import React, { useState } from 'react';
 
-export default function useForm() {
+const types = {
+  email: {
+    regex: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
+    message: 'Preencha um email válido',
+  },
+};
+
+export default function useForm(type) {
   const [value, setValue] = useState('');
+  const [error, setError] = useState(null);
+
+  function validate(value) {
+    if (type === false) return true;
+    if (value.length === 0) {
+      setError('Prencha um valor');
+      return false;
+    } else if (types[type] && !types[type].regex.test(value)) {
+      setError(types[type].message);
+      return false;
+    } else {
+      setError(true);
+      return true;
+    }
+  }
 
   function onChange(event) {
+    if (error) validate(target.value);
     setValue(event.target.value);
   }
 
@@ -11,5 +34,8 @@ export default function useForm() {
     value,
     setValue,
     onChange,
+    error,
+    validate: () => validate(value),
+    onBlur: () => validate(value),
   };
 }
