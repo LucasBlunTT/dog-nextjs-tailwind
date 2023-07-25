@@ -31,6 +31,8 @@ export default function Login() {
       const response = await fetch(url, options);
       const json = await response.json();
       window.localStorage.setItem('token', json.token);
+      console.log(json.token);
+      getUser(json.token);
     }
   }
 
