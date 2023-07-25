@@ -13,12 +13,12 @@ module.exports = {
       backgroundImage: {
         user: "url('../assets/usuario.svg')",
       },
-    },
-    transitionDuration: {
-      default: '250ms',
-    },
-    transitionProperty: {
-      default: 'ease-in-out',
+      transitionDuration: {
+        default: '250ms',
+      },
+      transitionProperty: {
+        default: 'ease-in-out',
+      },
     },
   },
   plugins: [],

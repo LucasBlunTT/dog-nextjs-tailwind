@@ -12,6 +12,14 @@
   body {
     padding-top: 3.3rem;
   }
+
+input:focus,
+input:hover{
+  outline: none;
+  border-color: #fb1;
+  background: white;
+  box-shadow: 0 0 0 3px #fea;
+}
   
   h1, h2, h3, h4 {
     margin: 0;
@@ -31,6 +39,12 @@
   button {
     cursor: pointer;
     border: none;
+    box-sizing: border-box;
+  }
+
+  button:disabled {
+    opacity: 0.5;
+    cursor: wait;
   }
   
   a {

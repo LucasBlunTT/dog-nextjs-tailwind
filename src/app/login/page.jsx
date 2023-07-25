@@ -1,17 +1,15 @@
 'use client';
 
+import useForm from '@/Hooks/useForm';
+import Container from '@/components/Container';
+import Button from '@/components/Forms/Button';
 import Input from '@/components/Forms/Input';
 import Link from 'next/link';
 import React, { useState } from 'react';
 
-export const metadata = {
-  title: 'Login',
-  description: 'Pagina de Login',
-};
-
 export default function Login() {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+  const username = useForm();
+  const password = useForm();
 
   function handlesubmit(event) {
     event.preventDefault();
@@ -32,14 +30,16 @@ export default function Login() {
   }
 
   return (
-    <section className="flex flex-col">
-      <h1>Login</h1>
-      <form action="" onSubmit={handlesubmit}>
-        <Input label="Usuário" type="text" name="username" />
-        <Input label="Senha" type="password" name="password" />
-        <button className="block">Entrar</button>
-      </form>
-      <Link href={'/login/criar'}>Cadastro</Link>
+    <section>
+      <Container className="flex-col">
+        <h1>Login</h1>
+        <form action="" onSubmit={handlesubmit} className="flex flex-col">
+          <Input label="Usuário" type="text" name="username" {...username} />
+          <Input label="Senha" type="password" name="password" {...password} />
+          <Button>Entrar</Button>
+        </form>
+        <Link href={'/login/criar'}>Cadastro</Link>
+      </Container>
     </section>
   );
 }
