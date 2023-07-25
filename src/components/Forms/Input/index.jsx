@@ -16,7 +16,7 @@ export default function Input({
         {label}
       </label>
       <input
-        className="rounded-[1px] border-2 border-solid border-[#eee] block w-full text-[1rem] p-[0.8rem] bg-[#eee] transition duration-150 ease-in-out"
+        className="rounded-[1rem] border-2 border-solid border-[#eee] block w-full text-[1rem] p-[0.8rem] bg-[#eee] transition duration-150 ease-in-out"
         id={name}
         type={type}
         value={value}

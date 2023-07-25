@@ -1,6 +1,7 @@
 'use client';
 
 import useForm from '@/Hooks/useForm';
+import { TOKEN_POST, USER_GET } from '@/api/api';
 import Container from '@/components/Container';
 import Button from '@/components/Forms/Button';
 import Input from '@/components/Forms/Input';
@@ -11,24 +12,25 @@ export default function Login() {
   const username = useForm();
   const password = useForm();
 
-  function handlesubmit(event) {
+  async function getUser(token) {
+    const { url, options } = USER_GET(token);
+    const response = await fetch(url, options);
+    const json = await response.json();
+    console.log(json);
+  }
+
+  async function handlesubmit(event) {
     event.preventDefault();
 
     if (username.validate() && password.validate()) {
-      fetch('https://dogsapi.origamid.dev/json/jwt-auth/v1/token', {
-        method: 'POST',
-        headers: {
-          'content-type': 'application/json',
-        },
-        body: JSON.stringify({ username, password }),
-      })
-        .then((response) => {
-          console.log(response);
-          return response.json();
-        })
-        .then((json) => {
-          console.log(json);
-        });
+      const { url, options } = TOKEN_POST({
+        username: username.value,
+        password: password.value,
+      });
+
+      const response = await fetch(url, options);
+      const json = await response.json();
+      window.localStorage.setItem('token', json.token);
     }
   }
 
