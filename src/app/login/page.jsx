@@ -6,11 +6,18 @@ import Container from '@/components/Container';
 import Button from '@/components/Forms/Button';
 import Input from '@/components/Forms/Input';
 import Link from 'next/link';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 export default function Login() {
   const username = useForm();
   const password = useForm();
+
+  useEffect(() => {
+    const token = window.localStorage.getItem('token');
+    if (token) {
+      getUser();
+    }
+  }, []);
 
   async function getUser(token) {
     const { url, options } = USER_GET(token);
