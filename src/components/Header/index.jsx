@@ -3,8 +3,10 @@ import Container from '@/components/Container/index';
 import Link from 'next/link';
 import Dogs from '../../assets/dogs.svg';
 import Image from 'next/image';
+import { UserContext } from '@/context/UserContext';
 
 export default function Header() {
+  const { data, userLogout } = useContext(UserContext);
 
   return (
     <header className="flex fixed w-full z-[100] top-0 bg-white shadow-[0px_1px_1px_rgba(0,0,0,0.1)] py-[1rem] px-0">
@@ -13,13 +15,22 @@ export default function Header() {
           <Link href={'/'}>
             <Image src={Dogs} alt="imagagem dog" />
           </Link>
-
-          <Link
-            className='flex items-center gap-2 after:content-[""] after:inline-block after:w-4 after:h-4 after:bg-user after:bg-no-repeat'
-            href={'/login'}
-          >
-            Login / Criar
-          </Link>
+          {data ? (
+            <Link
+              className='flex items-center gap-2 after:content-[""] after:inline-block after:w-4 after:h-4 after:bg-user after:bg-no-repeat'
+              href={'/conta'}
+            >
+              <button onClick={userLogout}>sair</button>
+              {data.nome}
+            </Link>
+          ) : (
+            <Link
+              className='flex items-center gap-2 after:content-[""] after:inline-block after:w-4 after:h-4 after:bg-user after:bg-no-repeat'
+              href={'/login'}
+            >
+              Login / Criar
+            </Link>
+          )}
         </nav>
       </Container>
     </header>

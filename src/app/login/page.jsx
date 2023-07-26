@@ -12,7 +12,7 @@ export default function Login() {
   const username = useForm();
   const password = useForm();
 
-  const { userLogin } = useContext(UserContext);
+  const { userLogin, data } = useContext(UserContext);
 
   async function handlesubmit(event) {
     event.preventDefault();
