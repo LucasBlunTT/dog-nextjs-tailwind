@@ -1,8 +1,15 @@
+'use client';
+
 import Header from '@/components/Header';
 import '@/app/globals.css';
 import { Poppins } from 'next/font/google';
+import { UserStorage } from '@/context/UserContext';
 
-const poppins = Poppins({ subsets: ['latin'], weight: ['400', '700'] });
+const poppins = Poppins({
+  subsets: ['latin'],
+  variable: '--font-popins',
+  weight: ['400', '700'],
+});
 
 export const metadata = {
   title: 'Create Next App',
@@ -13,8 +20,10 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={poppins.className}>
-        <Header />
-        {children}
+        <UserStorage>
+          <Header />
+          {children}
+        </UserStorage>
       </body>
     </html>
   );
