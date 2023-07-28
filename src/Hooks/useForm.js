@@ -8,7 +8,7 @@ const types = {
 };
 
 export default function useForm(type) {
-  const [value, setValue] = useState('');
+  const [value, setValue] = useState(null);
   const [error, setError] = useState(null);
 
   function validate(value) {
@@ -26,7 +26,7 @@ export default function useForm(type) {
   }
 
   function onChange(event) {
-    if (error) validate(target.value);
+    if (error) validate(event.target.value);
     setValue(event.target.value);
   }
 
