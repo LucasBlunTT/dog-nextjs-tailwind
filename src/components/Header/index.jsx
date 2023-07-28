@@ -16,13 +16,15 @@ export default function Header() {
             <Image src={Dogs} alt="imagagem dog" />
           </Link>
           {data ? (
-            <Link
-              className='flex items-center gap-2 after:content-[""] after:inline-block after:w-4 after:h-4 after:bg-user after:bg-no-repeat'
-              href={'/conta'}
-            >
+            <div className="flex gap-3">
+              <Link
+                className='flex items-center gap-2 after:content-[""] after:inline-block after:w-4 after:h-4 after:bg-user after:bg-no-repeat'
+                href={'/conta'}
+              >
+                {data.nome}
+              </Link>
               <button onClick={userLogout}>sair</button>
-              {data.nome}
-            </Link>
+            </div>
           ) : (
             <Link
               className='flex items-center gap-2 after:content-[""] after:inline-block after:w-4 after:h-4 after:bg-user after:bg-no-repeat'

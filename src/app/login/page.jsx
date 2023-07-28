@@ -7,12 +7,16 @@ import Input from '@/components/Forms/Input';
 import { UserContext } from '@/context/UserContext';
 import Link from 'next/link';
 import React, { useContext } from 'react';
+import { useRouter } from 'next/navigation';
 
 export default function Login() {
+  const router = useRouter();
   const username = useForm();
   const password = useForm();
 
-  const { userLogin, data } = useContext(UserContext);
+  const { userLogin, error, loading, login } = useContext(UserContext);
+
+  if (login) router.push('/conta');
 
   async function handlesubmit(event) {
     event.preventDefault();
@@ -29,7 +33,12 @@ export default function Login() {
         <form action="" onSubmit={handlesubmit} className="flex flex-col">
           <Input label="Usuário" type="text" name="username" {...username} />
           <Input label="Senha" type="password" name="password" {...password} />
-          <Button>Entrar</Button>
+          {loading ? (
+            <Button disabled>Carregando...</Button>
+          ) : (
+            <Button>Entrar</Button>
+          )}
+          {error && <p>{error}</p>}
         </form>
         <Link href={'/login/criar'}>Cadastro</Link>
       </Container>
