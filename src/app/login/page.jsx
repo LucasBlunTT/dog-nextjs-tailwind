@@ -8,8 +8,13 @@ import { UserContext } from '@/context/UserContext';
 import Link from 'next/link';
 import React, { useContext } from 'react';
 import { useRouter } from 'next/navigation';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+import Error from '@/components/Error';
 
 export default function Login() {
+  AOS.init();
+
   const router = useRouter();
   const username = useForm();
   const password = useForm();
@@ -27,7 +32,10 @@ export default function Login() {
   }
 
   return (
-    <section>
+    <section
+      data-aos="fade-right"
+      className="w-screen h-screen flex items-center mx-auto"
+    >
       <Container className="flex-col">
         <h1>Login</h1>
         <form action="" onSubmit={handlesubmit} className="flex flex-col">
@@ -38,7 +46,7 @@ export default function Login() {
           ) : (
             <Button>Entrar</Button>
           )}
-          {error && <p>{error}</p>}
+          {error && <Error error={error} />}
         </form>
         <Link href={'/login/criar'}>Cadastro</Link>
       </Container>
