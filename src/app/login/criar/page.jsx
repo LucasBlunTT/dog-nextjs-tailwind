@@ -1,27 +1,38 @@
 'use client';
 
 import useForm from '@/Hooks/useForm';
+import { USER_POST } from '@/api/api';
 import Container from '@/components/Container';
 import Button from '@/components/Forms/Button';
 import Input from '@/components/Forms/Input';
-import React from 'react';
+import { UserContext } from '@/context/UserContext';
+import React, { useContext } from 'react';
 
-export const metadata = {
-  title: 'Login / Criar',
-  description: 'Pagina de Criação de Login',
-};
-
-export default function CriarLogin(event) {
+export default function CriarLogin() {
   const username = useForm();
   const email = useForm('email');
   const password = useForm();
 
-  function handleSubmit() {
+  const { userLogin } = useContext(UserContext);
+
+  async function handleSubmit(event) {
     event.preventDefault();
+
+    const { url, options } = USER_POST({
+      username: username.value,
+      email: email.value,
+      password: password.value,
+    });
+
+    const response = await fetch(url, options);
+    if (response.ok) userLogin(username.value, password.value);
   }
 
   return (
-    <section data-aos="fade-right" className="py-4 flex flex-col justify-center items-center">
+    <section
+      data-aos="fade-right"
+      className="py-4 flex flex-col justify-center items-center"
+    >
       <Container className={'flex-col'}>
         <h1>Cadastre-se</h1>
         <form onSubmit={handleSubmit}>
