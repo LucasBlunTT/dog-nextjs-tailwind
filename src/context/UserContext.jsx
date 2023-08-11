@@ -30,7 +30,6 @@ export function UserStorage({ children }) {
     const json = await response.json();
     setData(json);
     setLogin(true);
-    console.log(json);
   }
 
   async function userLogin(username, password) {
@@ -54,7 +53,7 @@ export function UserStorage({ children }) {
   }
 
   useEffect(() => {
-    async function autoLogin(params) {
+    async function autoLogin() {
       const token = window.localStorage.getItem('token');
       if (token) {
         try {
@@ -69,6 +68,8 @@ export function UserStorage({ children }) {
         } finally {
           setLoading(false);
         }
+      } else {
+        setLogin(false);
       }
     }
     autoLogin();
