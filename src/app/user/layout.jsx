@@ -3,10 +3,11 @@
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import '@/app/globals.css';
+import Header from '@/components/Header';
+import HeaderUser from '@/components/HeaderUser';
 import { Poppins } from 'next/font/google';
 import { UserStorage } from '@/context/UserContext';
 import { useEffect } from 'react';
-import HeaderUser from '@/components/HeaderUser';
 
 const poppins = Poppins({
   subsets: ['latin'],
@@ -23,6 +24,7 @@ export default function UserLayout({ children }) {
     <html lang="en">
       <body className={poppins.className}>
         <UserStorage>
+          <Header />
           <HeaderUser />
           {children}
         </UserStorage>

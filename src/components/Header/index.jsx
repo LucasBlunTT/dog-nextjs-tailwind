@@ -19,7 +19,7 @@ export default function Header() {
             <div className="flex gap-3">
               <Link
                 className='flex items-center gap-2 after:content-[""] after:inline-block after:w-4 after:h-4 after:bg-user after:bg-no-repeat'
-                href={'/conta'}
+                href={'/user'}
               >
                 {data.nome}
               </Link>

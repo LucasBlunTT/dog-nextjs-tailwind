@@ -17,7 +17,7 @@ export default function Login() {
 
   const { userLogin, error, loading, login } = useContext(UserContext);
 
-  if (login) router.push('/conta');
+  if (login) router.push('/user');
 
   async function handleSubmit(event) {
     event.preventDefault();

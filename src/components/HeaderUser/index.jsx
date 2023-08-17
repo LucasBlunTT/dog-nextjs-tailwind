@@ -9,32 +9,10 @@ export default function HeaderUser() {
   const { data, userLogout } = useContext(UserContext);
 
   return (
-    <header className="flex fixed w-full z-[100] top-0 bg-white shadow-[0px_1px_1px_rgba(0,0,0,0.1)] py-[1rem] px-0">
+    <div className="flex w-full z-[100] top-0 bg-white shadow-[0px_1px_1px_rgba(0,0,0,0.1)] py-[1rem] px-0">
       <Container>
-        <nav className="flex w-full justify-between items-center">
-          <Link href={'/'}>
-            <Image src={Dogs} alt="imagagem dog" />
-          </Link>
-          {data ? (
-            <div className="flex gap-3">
-              <Link
-                className='flex items-center gap-2 after:content-[""] after:inline-block after:w-4 after:h-4 after:bg-user after:bg-no-repeat'
-                href={'/conta'}
-              >
-                {data.nome}
-              </Link>
-              <button onClick={userLogout}>sair</button>
-            </div>
-          ) : (
-            <Link
-              className='flex items-center gap-2 after:content-[""] after:inline-block after:w-4 after:h-4 after:bg-user after:bg-no-repeat'
-              href={'/login'}
-            >
-              Login / Criar
-            </Link>
-          )}
-        </nav>
+        <p>Header Usuário</p>
       </Container>
-    </header>
+    </div>
   );
 }
