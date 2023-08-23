@@ -18,5 +18,6 @@ export default function User() {
     );
   } else if (login === false) {
     router.push('/login');
+    return null;
   }
 }

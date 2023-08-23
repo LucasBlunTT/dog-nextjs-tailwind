@@ -23,7 +23,6 @@ export default function Header() {
               >
                 {data.nome}
               </Link>
-              <button onClick={userLogout}>sair</button>
             </div>
           ) : (
             <Link
