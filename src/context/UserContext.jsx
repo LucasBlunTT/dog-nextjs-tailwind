@@ -12,17 +12,13 @@ export function UserStorage({ children }) {
   const [loading, setLoading] = useState(null);
   const [error, setError] = useState(null);
 
-  const userLogout = useCallback(
-    async function () {
-      setData(null);
-      setError(null);
-      setLoading(false);
-      setLogin(false);
-      window.localStorage.removeItem('token');
-      router.push('/login');
-    },
-    [router],
-  );
+  const userLogout = useCallback(async function () {
+    setData(null);
+    setError(null);
+    setLoading(false);
+    setLogin(false);
+    window.localStorage.removeItem('token');
+  }, []);
 
   async function getUser(token) {
     const { url, options } = USER_GET(token);
