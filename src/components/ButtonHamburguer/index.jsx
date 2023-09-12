@@ -2,11 +2,9 @@ import React, { useState } from 'react';
 
 function ButtonHamburguer() {
   const [colorHover, setColorHover] = useState('#000');
-  const [mobileMenu, setMobileMenu] = useState(false);
   const [activeButton, setActiveButton] = useState(false);
 
   function handleActive() {
-    setMobileMenu(!mobileMenu);
     setActiveButton(!activeButton);
   }
 
@@ -24,15 +22,15 @@ function ButtonHamburguer() {
           height="24"
           viewBox="0 0 24 24"
           fill="none"
-          stroke={colorHover}
+          stroke="currentColor"
           stroke-width="2.25"
           stroke-linecap="round"
           stroke-linejoin="round"
-          class="lucide lucide-more-horizontal"
+          class="lucide lucide-more-vertical"
         >
           <circle cx="12" cy="12" r="1" />
-          <circle cx="19" cy="12" r="1" />
-          <circle cx="5" cy="12" r="1" />
+          <circle cx="12" cy="5" r="1" />
+          <circle cx="12" cy="19" r="1" />
         </svg>
       ) : (
         <svg

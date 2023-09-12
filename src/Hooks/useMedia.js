@@ -1,3 +1,5 @@
+'use client';
+
 import { useEffect, useState } from 'react';
 
 function useMedia(media) {
@@ -8,6 +10,7 @@ function useMedia(media) {
       const { matches } = window.matchMedia(media);
       setMatch(matches);
     }
+    changeMatch();
     window.addEventListener('resize', changeMatch);
 
     return () => {
