@@ -1,19 +1,14 @@
 import React, { useState } from 'react';
 
-function ButtonHamburguer() {
+function ButtonHamburguer({ activeButton, ...props }) {
   const [colorHover, setColorHover] = useState('#000');
-  const [activeButton, setActiveButton] = useState(false);
-
-  function handleActive() {
-    setActiveButton(!activeButton);
-  }
 
   return (
     <button
       className="bg-[#eee] rounded-[0.2rem] h-10 w-10 flex items-center justify-center border-[1px] border-solid border-transparent cursor-pointer hover:bg-white focus:bg-white hover:shadow-[0_0_0_3px_#eee] hover:border-[#fb1] focus:shadow-[0_0_0_3px_#fb1] focus:border-[#fb1] outline-none"
       onMouseOver={() => setColorHover('#fb1')}
       onMouseOut={() => setColorHover('#000')}
-      onClick={handleActive}
+      {...props}
     >
       {activeButton ? (
         <svg
@@ -22,7 +17,7 @@ function ButtonHamburguer() {
           height="24"
           viewBox="0 0 24 24"
           fill="none"
-          stroke="currentColor"
+          stroke={colorHover}
           stroke-width="2.25"
           stroke-linecap="round"
           stroke-linejoin="round"

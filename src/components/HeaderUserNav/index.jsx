@@ -19,22 +19,28 @@ export default function HeaderUserNav() {
   const currentRoute = usePathname();
   const router = useRouter();
   const mobile = useMedia('(max-width: 40rem)');
-
-  console.log(mobile);
+  const [activeButton, setActiveButton] = useState(false);
 
   function handleLogout() {
     userLogout();
     router.push('/login');
   }
 
+  function handleActive() {
+    setActiveButton(!activeButton);
+  }
+
   return (
     <>
-      {mobile && <ButtonHamburguer />}
+      {mobile && (
+        <ButtonHamburguer onClick={handleActive} activeButton={activeButton} />
+      )}
       {mobile ? (
         <NavigationMobile
           mobile={mobile}
           rotaAtual={currentRoute}
           handleLogout={handleLogout}
+          ativo={activeButton}
         />
       ) : (
         <NavigationDesktop
