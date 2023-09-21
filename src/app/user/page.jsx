@@ -1,6 +1,6 @@
 'use client';
 
-import Feed from '@/components/Feed';
+import Feed from '@/components/Feed/Feed';
 import { UserContext } from '@/context/UserContext';
 import { useRouter } from 'next/navigation';
 import React, { useContext } from 'react';

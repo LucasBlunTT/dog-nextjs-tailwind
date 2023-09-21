@@ -62,7 +62,7 @@ export default function UserPhotoPost() {
       </form>
       {img.preview && (
         <div
-          className="bg-cover bg-center rounded-2xl max-w-[200px] h-[200px]"
+          className="bg-cover bg-center rounded-2xl"
           style={{ backgroundImage: `url(${img.preview})` }}
         ></div>
       )}
