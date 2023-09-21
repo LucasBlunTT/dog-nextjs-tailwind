@@ -10,8 +10,8 @@ function NavigationMobile({ mobile, ativo, handleLogout }) {
 
   return (
     <nav
-      className={`block absolute top-[70px] right-0 p-[0_1rem] bg-white shadow-[0_1px_2px_rgba(0,0,0.2)] rounded-[0.2rem]  transform translate-x-[-10px] ${
-        ativo ? 'opacity-1' : 'opacity-0'
+      className={`block absolute top-[70px] right-0 p-[0_1rem] bg-white shadow-[0_1px_2px_rgba(0,0,0.2)] rounded-[0.2rem]  transform translate-x-[-10px] z-50 ${
+        ativo ? 'opacity-1' : 'opacity-0 pointer-events-none'
       }`}
     >
       <Link

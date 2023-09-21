@@ -1,14 +1,8 @@
 'use client';
 
-import Image from 'next/image';
-import React, { useContext, useState } from 'react';
-import Link from 'next/link';
+import React, { useContext, useEffect, useState } from 'react';
 import { UserContext } from '@/context/UserContext';
-import Feed from '@/assets/feed.svg';
 import ButtonHamburguer from '@/components/ButtonHamburguer';
-import Estatisticas from '@/assets/estatisticas.svg';
-import AdicionarFoto from '@/assets/adicionar.svg';
-import Sair from '@/assets/sair.svg';
 import { usePathname, useRouter } from 'next/navigation';
 import useMedia from '@/Hooks/useMedia';
 import NavigationDesktop from '../NavigationDesktop';
@@ -19,7 +13,7 @@ export default function HeaderUserNav() {
   const currentRoute = usePathname();
   const router = useRouter();
   const mobile = useMedia('(max-width: 40rem)');
-  const [activeButton, setActiveButton] = useState(false);
+  const [activeButton, setActiveButton] = useState(true);
 
   function handleLogout() {
     userLogout();
@@ -29,6 +23,10 @@ export default function HeaderUserNav() {
   function handleActive() {
     setActiveButton(!activeButton);
   }
+
+  useEffect(() => {
+    setActiveButton((active) => !active);
+  }, [currentRoute]);
 
   return (
     <>
