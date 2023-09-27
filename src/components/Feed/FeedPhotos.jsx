@@ -6,7 +6,7 @@ import { PHOTOS_GET } from '@/api/api';
 import React, { useEffect } from 'react';
 import FeedPhotosItem from '@/components/Feed/FeedPhotosItem';
 
-export default function FeedPhotos() {
+export default function FeedPhotos({ setModalPhoto }) {
   const { data, loading, error, request } = useFetch();
 
   useEffect(() => {
@@ -23,7 +23,13 @@ export default function FeedPhotos() {
   return (
     <ul className="grid grid-cols-3 gap-4 mb-4 justify-center sm:grid-cols-2">
       {data.map((photo) => {
-        return <FeedPhotosItem key={photo.id} photo={photo} />;
+        return (
+          <FeedPhotosItem
+            key={photo.id}
+            photo={photo}
+            setModalPhoto={setModalPhoto}
+          />
+        );
       })}
     </ul>
   );
