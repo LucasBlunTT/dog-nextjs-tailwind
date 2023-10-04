@@ -30,7 +30,7 @@ export default function Login() {
   return (
     <section data-aos="fade-right">
       <Container className="flex-col">
-        <div className="flex items-center justify-center flex-col h-[60%]">
+        <div className="flex items-center justify-center flex-col h-[60%] pt-28">
           <h1 className="text-[3.1rem]">Login</h1>
           <form
             onSubmit={handleSubmit}

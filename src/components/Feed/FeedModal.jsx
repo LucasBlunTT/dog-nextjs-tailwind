@@ -15,7 +15,7 @@ export default function FeedModal({ photo }) {
   }, [photo, request]);
 
   return (
-    <div>
+    <div className="flex fixed w-screen h-screen bg-black bg-opacity-[0.4] top-0 left-0 z-[1000] p-16 sm:">
       {error && <Error error={error} />}
       {loading && <Loading />}
       {data && <PhotoContent data={data} />}

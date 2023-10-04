@@ -2,14 +2,17 @@
 import React, { useState } from 'react';
 import FeedModal from './FeedModal';
 import FeedPhotos from './FeedPhotos';
+import Container from '../Container';
 
 export default function Feed() {
   const [modalPhoto, setModalPhoto] = useState(null);
 
   return (
-    <div>
+    <div className="mt-9">
       {modalPhoto && <FeedModal photo={modalPhoto} />}
-      <FeedPhotos setModalPhoto={setModalPhoto} />
+      <Container className={'flex-col'}>
+        <FeedPhotos setModalPhoto={setModalPhoto} />
+      </Container>
     </div>
   );
 }

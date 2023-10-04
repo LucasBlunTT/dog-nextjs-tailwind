@@ -12,7 +12,6 @@ export default function User() {
   if (login === true) {
     return (
       <>
-        <div>User</div>
         <Feed />
       </>
     );
