@@ -9,7 +9,9 @@ export default function Feed() {
 
   return (
     <div className="mt-9">
-      {modalPhoto && <FeedModal photo={modalPhoto} />}
+      {modalPhoto && (
+        <FeedModal photo={modalPhoto} setModalPhoto={setModalPhoto} />
+      )}
       <Container className={'flex-col'}>
         <FeedPhotos setModalPhoto={setModalPhoto} />
       </Container>
