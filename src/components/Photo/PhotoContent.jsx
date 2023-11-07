@@ -1,3 +1,5 @@
+'use client';
+
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
@@ -30,13 +32,13 @@ export default function PhotoContent({ data }) {
             <Link href={`/photo/${photo.id}`}>@{photo.title}</Link>
           </h1>
           <ul className="flex text-lg font-bold mt-4 mb-8">
-            <li className='mr-8'>{photo.peso} KG</li>
+            <li className="mr-8">{photo.peso} KG</li>
             <li>{photo.idade} ANOS</li>
           </ul>
+
+          <PhotoComments id={photo.id} comments={comments} />
         </div>
       </div>
-
-      {/* <PhotoComments id={photo.id} comments={comments} /> */}
     </div>
   );
 }
