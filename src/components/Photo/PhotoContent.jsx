@@ -19,7 +19,7 @@ export default function PhotoContent({ data }) {
           className="object-cover"
         />
       </div>
-      <div className="w-full max-w-[319px] h-full pt-8 pr-8 pb-0 pl-8 bg-white">
+      <div className="w-full max-w-[319px] h-full pt-8 pr-8 pb-0 pl-8 bg-white overflow-y-auto">
         <div>
           <p className="opacity-50 mb-4 flex justify-between items-center hover:underline">
             <Link href={`/perfil/${photo.author}`}>@{photo.author}</Link>
