@@ -7,6 +7,7 @@ import Olho from '../../assets/visualizacao-black.svg';
 import PhotoComments from '@/components/Photo/PhotoComments';
 import { UserContext } from '@/context/UserContext';
 import PhotoDelete from './PhotoDelete';
+import Skeleton from '../Skeleton/Skeleton';
 
 export default function PhotoContent({ data }) {
   const user = useContext(UserContext);
@@ -14,7 +15,7 @@ export default function PhotoContent({ data }) {
   return (
     <div className="flex w-full max-w-[894px] h-[575px]">
       <div className="w-full max-w-[575px] h-[575px] overflow-hidden">
-        <Image
+        <Skeleton
           src={photo.src}
           alt={photo.title}
           width={575}
