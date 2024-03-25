@@ -15,6 +15,7 @@
 
 input:focus,
 input:hover{
+  text-decoration: none !important;
   outline: none;
   border-color: #fb1;
   background: white;

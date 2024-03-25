@@ -2,11 +2,14 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import React from 'react';
+import React, { useContext } from 'react';
 import Olho from '../../assets/visualizacao-black.svg';
 import PhotoComments from '@/components/Photo/PhotoComments';
+import { UserContext } from '@/context/UserContext';
+import PhotoDelete from './PhotoDelete';
 
 export default function PhotoContent({ data }) {
+  const user = useContext(UserContext);
   const { photo, comments } = data;
   return (
     <div className="flex w-full max-w-[894px] h-[575px]">
@@ -22,7 +25,11 @@ export default function PhotoContent({ data }) {
       <div className="w-full max-w-[319px] h-full pt-8 pr-8 pb-0 pl-8 bg-white overflow-y-auto">
         <div>
           <p className="opacity-50 mb-4 flex justify-between items-center hover:underline">
-            <Link href={`/perfil/${photo.author}`}>@{photo.author}</Link>
+            {user.data && user.data.username === photo.author ? (
+              <PhotoDelete id={photo.id} />
+            ) : (
+              <Link href={`/perfil/${photo.author}`}>@{photo.author}</Link>
+            )}
             <span className="flex items-center">
               <Image src={Olho} alt="olho visualziação" className="mr-2" />
               {photo.acessos}
