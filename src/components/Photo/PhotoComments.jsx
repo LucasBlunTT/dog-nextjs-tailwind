@@ -10,7 +10,7 @@ export default function PhotoComments(props) {
 
   return (
     <>
-      <ul className='overflow-y-auto break-words p-[0_2rem]'>
+      <ul className='overflow-y-auto break-words'>
         {comments.map((comment) => (
           <li className='mb-2' key={comment.comment_ID}>
             <b>{comment.comment_author}: </b>

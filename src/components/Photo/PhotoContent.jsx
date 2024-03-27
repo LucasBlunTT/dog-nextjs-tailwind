@@ -37,7 +37,7 @@ export default function PhotoContent({ data }) {
             </span>
           </p>
           <h1>
-            <Link href={`/photo/${photo.id}`}>@{photo.title}</Link>
+            <Link href={`/foto/${photo.id}`}>@{photo.title}</Link>
           </h1>
           <ul className="flex text-lg font-bold mt-4 mb-8">
             <li className="mr-8">{photo.peso} KG</li>
