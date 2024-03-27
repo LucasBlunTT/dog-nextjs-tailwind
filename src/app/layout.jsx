@@ -14,7 +14,7 @@ const poppins = Poppins({
   weight: ['400', '700'],
 });
 
-export default function RootLayout({ children }) {
+export default function FotoLayout({ children }) {
   useEffect(() => {
     AOS.init();
   }, []);

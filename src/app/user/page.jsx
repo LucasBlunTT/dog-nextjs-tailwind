@@ -7,12 +7,12 @@ import React, { useContext } from 'react';
 
 export default function User() {
   const router = useRouter();
-  const { login } = useContext(UserContext);
+  const { login, data } = useContext(UserContext);
 
   if (login === true) {
     return (
       <>
-        <Feed />
+        <Feed user={data.id} />
       </>
     );
   } else if (login === false) {
