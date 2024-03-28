@@ -5,6 +5,7 @@ import useFetch from '@/Hooks/useFetch';
 import { PHOTOS_GET } from '@/api/api';
 import React, { useEffect } from 'react';
 import FeedPhotosItem from '@/components/Feed/FeedPhotosItem';
+import styles from './FeedPhotos.module.css';
 
 export default function FeedPhotos({ page, user, setModalPhoto, setInfinite }) {
   const { data, loading, error, request } = useFetch();
@@ -23,7 +24,7 @@ export default function FeedPhotos({ page, user, setModalPhoto, setInfinite }) {
   if (loading) return <Loading />;
   if (!data) return null;
   return (
-    <ul className="grid grid-cols-3 gap-4 mb-4 justify-center sm:grid-cols-2">
+    <ul className={styles.feed}>
       {data.map((photo) => {
         return (
           <FeedPhotosItem
