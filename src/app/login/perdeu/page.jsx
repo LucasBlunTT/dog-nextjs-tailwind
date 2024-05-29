@@ -7,7 +7,7 @@ import Container from '@/components/Container';
 import Error from '@/components/Error';
 import Button from '@/components/Forms/Button';
 import Input from '@/components/Forms/Input';
-import React from 'react';
+import React, { useEffect } from 'react';
 
 export const metadata = {
   title: 'Login / Perdeu',
@@ -17,6 +17,10 @@ export const metadata = {
 export default function PerdeuLogin() {
   const login = useForm();
   const { data, loading, error, request } = useFetch();
+
+  useEffect(() => {
+    document.title = 'Perdeu a Senha - Dogs';
+  }, []);
 
   async function handleSubmit(event) {
     event.preventDefault();

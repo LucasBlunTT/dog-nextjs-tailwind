@@ -8,12 +8,16 @@ import Error from '@/components/Error';
 import Button from '@/components/Forms/Button';
 import Input from '@/components/Forms/Input';
 import { UserContext } from '@/context/UserContext';
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 
 export default function CriarLogin() {
   const username = useForm();
   const email = useForm('email');
   const password = useForm();
+
+  useEffect(() => {
+    document.title = 'Crie sua conta - Dogs';
+  }, []);
 
   const { userLogin } = useContext(UserContext);
   const { loading, error, request } = useFetch();

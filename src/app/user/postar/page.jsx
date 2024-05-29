@@ -19,6 +19,7 @@ export default function UserPhotoPost() {
 
   useEffect(() => {
     if (data) navigate.push('/user');
+    document.title = 'Postar foto - Dogs';
   }, [data, navigate]);
 
   function handleSubmit(event) {

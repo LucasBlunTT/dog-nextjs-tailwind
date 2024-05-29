@@ -15,6 +15,10 @@ export default function Login() {
   const username = useForm();
   const password = useForm();
 
+  useEffect(() => {
+    document.title = 'Login - Dogs';
+  }, []);
+
   const { userLogin, error, loading, login } = useContext(UserContext);
 
   if (login) router.push('/user');
