@@ -7,7 +7,7 @@ import { PASSWORD_RESET } from '@/api/api';
 import Error from '@/components/Error';
 import { useRouter } from 'next/navigation';
 
-function LoginReset() {
+export default function LoginReset() {
   const [login, setLogin] = useState('');
   const [key, setKey] = useState('');
   const password = useForm();
@@ -56,5 +56,3 @@ function LoginReset() {
     </div>
   );
 }
-
-export default LoginReset;
