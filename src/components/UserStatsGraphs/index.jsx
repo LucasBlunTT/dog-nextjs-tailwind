@@ -25,7 +25,7 @@ export default function UserStatsGraphs({ data }) {
     <Container>
       <section className={style.graph}>
         <div className={`${style.total} ${style.graphItem}`}>
-          <p>Acessos: {total}</p>
+          <p>Acessos: {/*total*/70}</p>
         </div>
         <div className={style.graphItem}>
           <VictoryPie
