@@ -1,6 +1,8 @@
+'use client';
+
 import Button from '@/components/Forms/Button';
 import Input from '@/components/Forms/Input';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import useFetch from '@/Hooks/useFetch';
 import useForm from '@/Hooks/useForm';
 import { PASSWORD_RESET } from '@/api/api';
@@ -11,7 +13,7 @@ export default function LoginReset() {
   const [login, setLogin] = useState('');
   const [key, setKey] = useState('');
   const password = useForm();
-  const [error, loading, request] = useFetch();
+  const { error, loading, request } = useFetch();
   const router = useRouter();
 
   useEffect(() => {
