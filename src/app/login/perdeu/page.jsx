@@ -9,11 +9,6 @@ import Button from '@/components/Forms/Button';
 import Input from '@/components/Forms/Input';
 import React, { useEffect } from 'react';
 
-export const metadata = {
-  title: 'Login / Perdeu',
-  description: 'Pagina de Recuperação de Login',
-};
-
 export default function PerdeuLogin() {
   const login = useForm();
   const { data, loading, error, request } = useFetch();
