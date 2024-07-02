@@ -18,5 +18,9 @@ Projeto criado com a intenção de criar um blog completo para PETS, podendo rea
 ## 📈 Status do projeto
 ✅ Concluído
 
+## 🌟 Extra: Para Logar
+Login: dog
+Senha: dog
+
 ## 🚀 Links 
 - Site em produção: [Link](https://dog-nextjs-tailwind-o1dkprgrh-lucasbluntts-projects.vercel.app/login "Link")
